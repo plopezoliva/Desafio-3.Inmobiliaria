@@ -72,13 +72,12 @@ formatoCard.innerHTML+= `<div class="propiedades">
 
 //formato del titulo
 const formatoTitulo= document.querySelector("#todas-propiedades")
-formatoTitulo.innerHTML+= `<h4 class="py-3">Total: <span>${propiedadesDisponibles.length}</span></h4>`;
+formatoTitulo.innerHTML+= `Total: ${propiedadesDisponibles.length}`;
 
-const clearPropiedades = (idSection)=>{
-  const sectionElement= document.querySelector(`#${idSection}`);
-  sectionElement.innerHTML= "";
-}
 
+const clearPropiedades = () => {
+  document.querySelector("#Propiedades").innerHTML = "";
+  };
 
 //trabajando en el buscador (input)
 
@@ -97,15 +96,14 @@ if(cantidadDormitorios.length == 0 || metrosCuadrados1.length == 0 || metrosCuad
 }else{
   //aqui se define el filtrado de la card
   let cardFiltrada = propiedadesDisponibles.filter(function(filtro){
-    return filtro.metros >= metrosCuadrados1 && filtro.metros <= metrosCuadrados2;
+    return (filtro.metros >= metrosCuadrados1 && filtro.metros <= metrosCuadrados2);
 
   }) 
   // console.log(cardFiltrada)
 
-  
-
   //aqui se muestra la card filtrada
-  const resultadoCard= document.querySelector("#Propiedades")
+  const resultadoCard= document.querySelector("#Propiedades");
+  clearPropiedades()
   for (let formato1 of cardFiltrada ){
     resultadoCard.innerHTML+= `<div class="propiedades">
   <div class="propiedad">
@@ -130,8 +128,8 @@ let limpiarInput= ()=>{
 document.getElementById("input-metros1").value = "";
 document.getElementById("input-metros2").value = "";
 
-}
+};
 limpiarInput();
-} )
+} );
 
 
